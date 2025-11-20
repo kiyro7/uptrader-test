@@ -1,0 +1,13 @@
+<li class="menu-item{% if item.active %} active{% endif %}{% if item.expanded %} expanded{% endif %}">
+  {% with url=item.get_url %}
+    <a href="{{ url }}"{% if item.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ item.title }}</a>
+  {% endwith %}
+
+  {% if item.children %}
+    <ul class="submenu level-{{ item.get_level|default:1 }}">
+      {% for child in item.children %}
+        {% include 'menu/_menu_item.html' with item=child %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</li>

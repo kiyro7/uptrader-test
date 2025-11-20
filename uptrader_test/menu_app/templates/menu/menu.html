@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="menu {{ menu.name }}">
+  {% for item in items %}
+    {% include 'menu/_menu_item.html' with item=item %}
+  {% endfor %}
+</ul>
+</body>
+</html>
